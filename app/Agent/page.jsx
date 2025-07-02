@@ -17,7 +17,7 @@ const agent = {
 
 export default function AgentPage() {
   return (
-    <main style={{ fontFamily: "Inter, sans-serif", minHeight: "100vh", width: "100%", background: '#f7f7f7' }}>
+    <main style={{ fontFamily: "Inter, sans-serif", minHeight: "100vh", width: "100%", background: '#f7f7f7', overflowX: 'hidden' }}>
       {/* Main Card */}
       <section style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", marginTop: 140, marginBottom: 0 }}>
         <div style={{
@@ -26,27 +26,29 @@ export default function AgentPage() {
           boxShadow: "0 4px 32px rgba(0,0,0,0.06)",
           padding: "3.5rem 2.5rem 2.5rem 2.5rem",
           maxWidth: 700,
+          maxWidth: '100vw',
           width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          position: "relative"
+          position: "relative",
+          overflow: "visible"
         }}>
           {/* Agent Image Bottom Left */}
           <img
             src={agent.image}
             alt={agent.name}
             style={{
-              width: 90,
-              height: 90,
+              width: 130,
+              height: 130,
               borderRadius: "50%",
               objectFit: "cover",
               border: "6px solid #fff",
               boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
               background: "#eaeaea",
               position: "absolute",
-              left: 24,
-              bottom: 24,
+              left: 20,
+              bottom: -30,
               zIndex: 2
             }}
           />
@@ -154,10 +156,10 @@ export default function AgentPage() {
             padding-top: 90px !important;
           }
           img[alt='Nathan Sterling'] {
-            width: 70px !important;
-            height: 70px !important;
-            left: 12px !important;
-            bottom: 12px !important;
+            width: 90px !important;
+            height: 90px !important;
+            left: 10px !important;
+            bottom: -18px !important;
           }
         }
       `}</style>
