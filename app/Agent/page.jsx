@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaXTwitter, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 
 const agent = {
