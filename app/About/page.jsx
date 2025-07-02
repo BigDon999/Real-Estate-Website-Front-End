@@ -4,7 +4,7 @@ import AnimatedElement from "../components/AnimatedElement";
 
 const About = () => {
   return (
-    <main style={{ padding: "4rem 1rem", maxWidth: "1200px", margin: "0 auto", marginTop: "4rem" }}>
+    <main style={{ padding: "4rem 1rem", maxWidth: "1200px", margin: "0 auto", marginTop: "6rem" }}>
       {/* Hero Section */}
       <AnimatedElement delay={0} duration={1000}>
         <section style={{ marginBottom: "4rem",  }}>
@@ -67,7 +67,7 @@ const About = () => {
 
       {/* Testimonials Section */}
       <section style={{ marginBottom: "4rem",}}>
-        <span style={{ backgroundColor:  "#ABC3CD", color: "#000", padding: "0.3rem 0.7rem", borderRadius: "20px", fontSize: "0.85rem", fontWeight: "bold", whiteSpace: "nowrap" }}>
+        <span style={{ backgroundColor:  "#ABC3CD", color: "#000", padding: "0.3rem 0.7rem", borderRadius: "20px", fontSize: "0.85rem", fontWeight: "bold", whiteSpace: "nowrap", display: "inline-block", marginTop: "2rem" }}>
           Testimonials
         </span>
         <h2 style={{ fontSize: "1.8rem", marginTop: "1rem" }}>In our clients' words, real estate done right</h2>
@@ -124,7 +124,7 @@ const About = () => {
 
       {/* Why Us Section */}
       <section style={{ marginBottom: "4rem", }}>
-        <span style={{ backgroundColor:  "#ABC3CD", color: "#000", padding: "0.3rem 0.7rem", borderRadius: "20px", fontSize: "0.85rem", fontWeight: "bold", whiteSpace: "nowrap" }}>
+        <span style={{ backgroundColor:  "#ABC3CD", color: "#000", padding: "0.3rem 0.7rem", borderRadius: "20px", fontSize: "0.85rem", fontWeight: "bold", whiteSpace: "nowrap", display: "inline-block", marginTop: "2rem" }}>
           Why us
         </span>
         <h2 style={{ fontSize: "1.8rem", marginTop: "1rem" }}>A smooth and stress-free journey</h2>
