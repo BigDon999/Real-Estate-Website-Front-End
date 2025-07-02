@@ -52,11 +52,12 @@ const Navbar = () => {
     >
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1900px",
           margin: "0 auto",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+        
         }}
       >
         {/* Logo */}
@@ -83,6 +84,7 @@ const Navbar = () => {
               margin: 0,
               padding: 0,
             }}
+            
           >
             {navLinks.map((item, index) => (
               <li key={index} style={{ position: "relative" }}>
