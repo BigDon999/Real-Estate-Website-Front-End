@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaXTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 
 const agent = {
@@ -55,7 +55,7 @@ export default function AgentPage() {
           <p style={{ color: "#757575", fontSize: "1.15rem", margin: "0.5rem 0 1.5rem 0", fontWeight: 400, textAlign: "center" }}>{agent.username}</p>
           {/* Social Icons */}
           <div style={{ display: "flex", gap: 18, margin: "0 0 0.5rem 0" }}>
-            <a href="#" style={{ color: "#181818", fontSize: 22, background: "#f3f3f3", borderRadius: "50%", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}><FaXTwitter /></a>
+            <a href="#" style={{ color: "#181818", fontSize: 22, background: "#f3f3f3", borderRadius: "50%", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}><FaTwitter /></a>
             <a href="#" style={{ color: "#181818", fontSize: 22, background: "#f3f3f3", borderRadius: "50%", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}><FaLinkedinIn /></a>
           </div>
         </div>
