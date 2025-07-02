@@ -129,7 +129,7 @@ const Blog = () => {
                 <img
                   src="/assets/author1.webp"
                   alt="Author"
-                  style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                  style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover", display: "block" }}
                 />
                 <div>
                   <strong style={{ display: "block" }}>{blogs[0].author}</strong>

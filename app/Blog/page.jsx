@@ -9,6 +9,7 @@ const blogs = [
     title: "How to Invest in Real Estate the Right Way",
     date: "June 27, 2025",
     author: "Chinwe Okafor",
+    authorImage: "/assets/author1.webp",
     role: "Property Analyst",
     image: "/assets/blog1.webp",
     summary: "Discover key strategies for maximizing your returns in the real estate market.",
@@ -20,6 +21,7 @@ const blogs = [
     title: "Top Locations to Buy Property in 2025",
     date: "June 20, 2025",
     author: "David Adebayo",
+    authorImage: "/assets/author2.jpg",
     role: "Market Researcher",
     image: "/assets/blog2.jpeg",
     summary: "Explore the most promising locations for property investment this year.",
@@ -31,6 +33,7 @@ const blogs = [
     title: "Real Estate Trends You Should Know",
     date: "June 15, 2025",
     author: "Sarah Johnson",
+    authorImage: "/assets/author3.jpg",
     role: "Real Estate Expert",
     image: "/assets/blog3.jpg",
     summary: "Stay ahead of the curve with these emerging real estate trends.",
@@ -42,13 +45,13 @@ const blogs = [
     title: "Is It Better to Rent or Buy?",
     date: "June 5, 2025",
     author: "Michael Chen",
+    authorImage: "/assets/author4.webp",
     role: "Financial Advisor",
     image: "/assets/blog4.avif",
     summary: "A comprehensive guide to help you decide between renting and buying.",
     readTime: "8 min read",
     category: "Advice",
   },
-  
 ];
 
 export default function BlogPage() {
@@ -158,8 +161,8 @@ export default function BlogPage() {
                     </p>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                       <img
-                        src="/assets/author1.webp"
-                        alt="Author"
+                        src={blogs[0].authorImage}
+                        alt={blogs[0].author}
                         style={{ width: "40px", height: "40px", borderRadius: "50%" }}
                       />
                       <div>
@@ -233,8 +236,15 @@ export default function BlogPage() {
                         </p>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                           <span style={{ color: "#666", fontSize: "0.9rem" }}>{blog.date}</span>
-                          {blog.author && (
-                            <span style={{ color: "#666", fontSize: "0.9rem" }}>By {blog.author}</span>
+                          {blog.author && blog.authorImage && (
+                            <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                              <img
+                                src={blog.authorImage}
+                                alt={blog.author}
+                                style={{ width: "24px", height: "24px", borderRadius: "50%", objectFit: "cover", display: "block" }}
+                              />
+                              <span style={{ color: "#666", fontSize: "0.9rem" }}>By {blog.author}</span>
+                            </span>
                           )}
                         </div>
                       </div>

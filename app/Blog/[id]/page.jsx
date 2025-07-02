@@ -243,9 +243,9 @@ export default function BlogDetailPage() {
             <span style={{ 
               background: "#000", 
               color: "#fff", 
-              padding: "0.3rem 0.8rem", 
-              borderRadius: "12px", 
-              fontSize: "0.8rem" 
+              padding: "0.15rem 0.5rem", 
+              borderRadius: "8px", 
+              fontSize: "0.72rem" 
             }}>
               {blog.category}
             </span>
@@ -283,7 +283,7 @@ export default function BlogDetailPage() {
                    blog.id === 3 ? "/assets/author3.jpg" :
                    blog.id === 4 ? "/assets/author4.webp" : "/assets/author1.webp"}
               alt="Author"
-              style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+              style={{ width: "50px", height: "50px", borderRadius: "50%", objectFit: "cover", display: "block" }}
             />
             <div>
               <strong style={{ display: "block", fontSize: "1.1rem" }}>{blog.author}</strong>
