@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
+import styles from "./Features.module.css";
 
 const Features = () => {
   const features = [
@@ -36,46 +38,14 @@ const Features = () => {
   };
 
   return (
-    <section
-      style={{
-        backgroundColor: "#f5f5f5",
-        padding: "5rem 2rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          gap: "2rem",
-        }}
-      >
+    <section className={styles.featuresSection}>
+      <div className={styles.container}>
         {/* Left Content */}
-        <div style={{ flex: "1 1 500px" }}>
-          <span
-            style={{
-              backgroundColor: "#ABC3CD", // Casper background
-              color: "#000",
-              padding: "0.4rem 1.2rem",
-              borderRadius: "30px",
-              fontWeight: "600",
-              fontSize: "0.9rem",
-              display: "inline-block",
-              marginBottom: "1rem",
-            }}
-          >
+        <div className={styles.leftContent}>
+          <span className={styles.tag}>
             Features
           </span>
-          <h2
-            style={{
-              fontSize: "2rem",
-              marginBottom: "2rem",
-              marginBottom: "8.8rem",
-            }}
-          >
+          <h2 className={styles.title}>
             Discover our features
           </h2>
 
@@ -83,23 +53,13 @@ const Features = () => {
             <div
               key={index}
               onClick={() => toggle(index)}
-              style={{
-                borderBottom: "1px solid #ccc",
-                padding: "1rem 0",
-                cursor: "pointer",
-              }}
+              className={styles.accordionItem}
             >
-              <h3 style={{ fontSize: "1.1rem", margin: 0, color: "#333" }}>
+              <h3 className={styles.accordionTitle}>
                 {item.title}
               </h3>
               {activeIndex === index && (
-                <p
-                  style={{
-                    marginTop: "0.5rem",
-                    color: "#666",
-                    fontSize: "0.95rem",
-                  }}
-                >
+                <p className={styles.accordionContent}>
                   {item.content}
                 </p>
               )}
@@ -108,16 +68,16 @@ const Features = () => {
         </div>
 
         {/* Right Image */}
-        <div style={{ flex: "1 1 400px" }}>
-          <img
-            src="/assets/featured.jpg"
-            alt="Features"
-            style={{
-              width: "100%",
-              borderRadius: "12px",
-              objectFit: "cover",
-            }}
-          />
+        <div className={styles.rightContent}>
+          <div className={styles.featureImageWrapper}>
+            <Image
+              src="/assets/featured.jpg"
+              alt="Features"
+              fill
+              className={styles.featureImage}
+              sizes="(max-width: 768px) 100vw, 500px"
+            />
+          </div>
         </div>
       </div>
     </section>

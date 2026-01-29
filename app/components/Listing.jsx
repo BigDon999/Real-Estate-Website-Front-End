@@ -1,6 +1,7 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import styles from "./Listing.module.css";
 
 const listingsData = [
   {
@@ -48,91 +49,41 @@ const listingsData = [
 ];
 
 const Listing = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section style={{ padding: "6rem 2rem", marginTop: "4rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section className={styles.listingSection}>
+      <div className={styles.container}>
         {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: isMobile ? "column" : "row",
-            justifyContent: "space-between",
-            alignItems: isMobile ? "flex-start" : "center",
-            marginBottom: "1.5rem",
-            gap: isMobile ? "1rem" : 0,
-          }}
-        >
-          <h2 style={{ fontSize: "2.5rem", margin: 0 }}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>
             Explore Our Listings
           </h2>
-          <Link
-            href="/Listing"
-            style={{
-              backgroundColor: "#000",
-              color: "#fff",
-              padding: isMobile ? "0.35rem 0.9rem" : "0.4rem 1.2rem",
-              fontSize: isMobile ? "0.88rem" : "0.9rem",
-              border: "none",
-              borderRadius: "6px",
-              cursor: "pointer",
-              textDecoration: "none",
-              display: "flex", // Changed from 'inline-block' to 'flex'
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              minWidth: isMobile ? "90px" : "120px",
-              boxShadow: isMobile
-                ? "0 2px 8px rgba(0,0,0,0.06)"
-                : "0 4px 12px rgba(0,0,0,0.08)",
-              transition: "all 0.2s",
-            }}
-          >
+          <Link href="/Listing" className={styles.viewMoreBtn}>
             View More
           </Link>
         </div>
 
         {/* Listings Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "2rem",
-          }}
-        >
+        <div className={styles.grid}>
           {listingsData.map((listing) => (
-            <Link key={listing.id} href={`/Listing/${listing.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-              <div
-                style={{
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                  background: "#fff",
-                  cursor: "pointer",
-                  transition: "transform 0.1s",
-                }}
-              >
-                <img
-                  src={listing.image}
-                  alt={listing.title}
-                  style={{ width: "100%", height: "200px", objectFit: "cover" }}
-                />
-                <div style={{ padding: "1rem" }}>
-                  <h3 style={{ fontSize: "1.4rem", margin: "0 0 0.5rem 0" }}>
+            <Link key={listing.id} href={`/Listing/${listing.id}`} className={styles.cardLink}>
+              <div className={styles.card}>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={listing.image}
+                    alt={listing.title}
+                    fill
+                    className={styles.listingImage}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>
                     {listing.title}
                   </h3>
-                  <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                  <p className={styles.cardDescription}>
                     {listing.description}
                   </p>
-                  <p style={{ fontWeight: "bold", marginTop: "0.8rem" }}>
+                  <p className={styles.cardPrice}>
                     {listing.price}
                   </p>
                 </div>

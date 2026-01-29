@@ -10,19 +10,19 @@ import AnimatedElement from "./components/AnimatedElement";
 export default function Home() {
   return (
     <>
-      <AnimatedElement delay={0} duration={1000}>
+      <AnimatedElement delay={0} duration={800}>
       <Hero />
       </AnimatedElement>
-      <AnimatedElement delay={200} duration={1000}>
+      <AnimatedElement delay={100} duration={800}>
       <Listing/>
       </AnimatedElement>
-      <AnimatedElement delay={400} duration={1000}>
+      <AnimatedElement delay={150} duration={800}>
       <Features/>
       </AnimatedElement>
-      <AnimatedElement delay={600} duration={1000}>
+      <AnimatedElement delay={200} duration={800}>
       <Blog/>
       </AnimatedElement>
-      <AnimatedElement delay={800} duration={1000}>
+      <AnimatedElement delay={250} duration={800}>
       <Faq/>
       </AnimatedElement>
     </>
