@@ -59,6 +59,7 @@ const Blog = () => {
                 fill
                 className={styles.featuredImage}
                 sizes="(max-width: 768px) 100vw, 500px"
+                priority
               />
             </div>
             <div className={styles.featuredContent}>
@@ -78,6 +79,7 @@ const Blog = () => {
                     alt="Author"
                     fill
                     className={styles.authorImage}
+                    priority
                   />
                 </div>
                 <div>

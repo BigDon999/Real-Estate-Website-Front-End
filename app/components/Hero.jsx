@@ -6,6 +6,8 @@ import AnimatedElement from "./AnimatedElement";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
+
+
   return (
     <section className={styles.heroSection}>
       <Image
@@ -14,7 +16,7 @@ const Hero = () => {
         fill
         priority
         className={styles.heroBackground}
-        quality={90}
+        quality={80}
       />
       
       {/* Optional white fade at bottom */}

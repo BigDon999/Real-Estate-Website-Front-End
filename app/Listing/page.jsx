@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedElement from "../components/AnimatedElement";
+import styles from "./listing.module.css";
 
 const listingsData = [
   {
@@ -77,125 +79,84 @@ const listingsData = [
 ];
 
 export default function ListingPage() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section style={{ padding: "6rem 2rem", marginTop: "4rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <AnimatedElement delay={0} duration={1000}>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <h1 style={{ fontSize: "2.5rem", margin: "0 0 1rem 0" }}>All Listings</h1>
-            <p style={{ fontSize: "1.1rem", color: "#666", margin: "0 0 2rem 0" }}>
-              Explore our wide range of properties
-            </p>
-          </div>
-        </AnimatedElement>
+    <section className={styles.pageContainer}>
+      <div className={styles.contentWrapper}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>All Listings</h1>
+          <p className={styles.subtitle}>
+            Explore our wide range of properties
+          </p>
+        </div>
 
-        <AnimatedElement delay={200} duration={1000}>
-          <div style={{ marginBottom: "3rem" }}>
-            <h2 style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>Featured Listing</h2>
-            <Link href={`/Listing/${listingsData[0].id}`} style={{ textDecoration: "none", color: "inherit" }}>
-              <div style={{
-                display: "flex",
-                flexDirection: isMobile ? "column" : "row",
-                gap: "2rem",
-                background: "#f8f8f8",
-                borderRadius: "16px",
-                padding: "2rem",
-                cursor: "pointer",
-                transition: "transform 0.2s"
-              }}>
-                <img
+        <div className={styles.featuredSection}>
+          <h2 className={styles.sectionTitle}>Featured Listing</h2>
+          <Link href={`/Listing/${listingsData[0].id}`} className={styles.featuredCardLink}>
+            <div className={styles.featuredCard}>
+              <div className={styles.featuredImageWrapper}>
+                <Image
                   src={listingsData[0].image}
                   alt={listingsData[0].title}
-                  style={{
-                    width: isMobile ? "100%" : "400px",
-                    height: "250px",
-                    objectFit: "cover",
-                    borderRadius: "12px"
-                  }}
+                  fill
+                  priority
+                  className={styles.featuredImage}
+                  sizes="(max-width: 768px) 100vw, 400px"
                 />
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-                    <span style={{ 
-                      background: "#000", 
-                      color: "#fff", 
-                      padding: "0.3rem 0.8rem", 
-                      borderRadius: "12px", 
-                      fontSize: "0.8rem" 
-                    }}>
-                      {listingsData[0].title}
-                    </span>
-                  </div>
-                  <h3 style={{ fontSize: "1.8rem", margin: "0 0 1rem 0" }}>
-                    {listingsData[0].title}
-                  </h3>
-                  <p style={{ color: "#555", fontSize: "1.1rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
-                    {listingsData[0].description}
-                  </p>
-                  <p style={{ fontWeight: "bold", marginTop: "0.8rem" }}>
-                    {listingsData[0].price}
-                  </p>
-                </div>
               </div>
-            </Link>
-          </div>
-        </AnimatedElement>
+              <div className={styles.featuredContent}>
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
+                  <span className={styles.badge}>
+                    {listingsData[0].title}
+                  </span>
+                </div>
+                <h3 className={styles.cardTitle}>
+                  {listingsData[0].title}
+                </h3>
+                <p className={styles.cardDescription}>
+                  {listingsData[0].description}
+                </p>
+                <p className={styles.price}>
+                  {listingsData[0].price}
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
 
         <AnimatedElement delay={400} duration={1000}>
-          <div style={{ marginBottom: "2rem" }}>
-            <h2 style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>All Listings</h2>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(400px, 1fr))",
-              gap: "2rem"
-            }}>
+          <div className={styles.gridSection}>
+            <h2 className={styles.sectionTitle}>All Listings</h2>
+            <div className={styles.grid}>
               {listingsData.slice(1).map((listing, index) => (
-                <AnimatedElement key={listing.id} delay={index * 150} duration={800}>
-                  <Link
-                    href={`/Listing/${listing.id}`}
-                    style={{
-                      borderRadius: "16px",
-                      overflow: "hidden",
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                      background: "#fff",
-                      textDecoration: "none",
-                      color: "inherit",
-                      transition: "transform 0.2s",
-                      display: "block"
-                    }}
-                  >
-                    <img
-                      src={listing.image}
-                      alt={listing.title}
-                      style={{ 
-                        width: "100%", 
-                        height: "250px", 
-                        objectFit: "cover",
-                        borderRadius: "12px",
-                        marginBottom: "1.5rem"
-                      }}
-                    />
-                    <div style={{ padding: "1rem" }}>
-                      <h3 style={{ fontSize: "1.6rem", margin: "0 0 1rem 0", lineHeight: 1.4 }}>
+                <Link
+                  key={listing.id}
+                  href={`/Listing/${listing.id}`}
+                  className={styles.listingCardLink}
+                >
+                  <div className={styles.listingCard}>
+                    <div className={styles.listingImageWrapper}>
+                      <Image
+                        src={listing.image}
+                        alt={listing.title}
+                        fill
+                        className={styles.listingImage}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={index < 2}
+                      />
+                    </div>
+                    <div className={styles.listingContent}>
+                      <h3 className={styles.listingTitle}>
                         {listing.title}
                       </h3>
-                      <p style={{ color: "#555", fontSize: "1.05rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                      <p className={styles.listingDescription}>
                         {listing.description}
                       </p>
-                      <p style={{ fontWeight: "bold", marginTop: "0.8rem" }}>
+                      <p className={styles.price}>
                         {listing.price}
                       </p>
                     </div>
-                  </Link>
-                </AnimatedElement>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -64,7 +64,7 @@ const Listing = () => {
 
         {/* Listings Grid */}
         <div className={styles.grid}>
-          {listingsData.map((listing) => (
+          {listingsData.map((listing, index) => (
             <Link key={listing.id} href={`/Listing/${listing.id}`} className={styles.cardLink}>
               <div className={styles.card}>
                 <div className={styles.imageContainer}>
@@ -74,6 +74,7 @@ const Listing = () => {
                     fill
                     className={styles.listingImage}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index < 4}
                   />
                 </div>
                 <div className={styles.cardContent}>

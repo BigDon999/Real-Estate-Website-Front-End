@@ -10,9 +10,7 @@ import AnimatedElement from "./components/AnimatedElement";
 export default function Home() {
   return (
     <>
-      <AnimatedElement delay={0} duration={800}>
       <Hero />
-      </AnimatedElement>
       <AnimatedElement delay={100} duration={800}>
       <Listing/>
       </AnimatedElement>
