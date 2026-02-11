@@ -74,7 +74,7 @@ const Listing = () => {
                     fill
                     className={styles.listingImage}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={index < 4}
+                    priority={true}
                   />
                 </div>
                 <div className={styles.cardContent}>

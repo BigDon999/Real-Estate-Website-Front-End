@@ -80,6 +80,7 @@ const Blog = () => {
                     fill
                     className={styles.authorImage}
                     priority
+                    sizes="40px"
                   />
                 </div>
                 <div>

@@ -16,7 +16,6 @@ const Hero = () => {
         fill
         priority
         className={styles.heroBackground}
-        quality={80}
       />
       
       {/* Optional white fade at bottom */}
